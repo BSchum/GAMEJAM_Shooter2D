@@ -18,10 +18,15 @@ public class Health : MonoBehaviour {
         return _maxHp;
     }
 
-    void TakeDamage(int amount)
+    public void TakeDamage(int amount)
     {
         this.hp -= amount;
         this.damageTaken(hp);
+
+        if(hp <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void Register(DamageTaken callBack)

@@ -9,7 +9,9 @@ public class Mow : MonoBehaviour {
     [SerializeField]
     GameObject _leftAttack;
     [SerializeField]
-    float _activateTime = 2f;
+    float _activateTime = 0.01f;
+
+    int damage = 50;
 	// Use this for initialization
 	void Start () {
 		
@@ -30,5 +32,14 @@ public class Mow : MonoBehaviour {
         yield return new WaitForSeconds(_activateTime);
         rightAttack.SetActive(false);
         Debug.Log("Je suis desactivé");
+    }
+
+    public void OnMowCollision(Collision2D col)
+    {
+        Debug.Log("Je suis dans le script mow et la collision a été detecté avec "+col.gameObject.name);
+        if(col.gameObject.tag == "enemy")
+        {
+            col.gameObject.GetComponent<Health>().TakeDamage(damage);
+        }
     }
 }
