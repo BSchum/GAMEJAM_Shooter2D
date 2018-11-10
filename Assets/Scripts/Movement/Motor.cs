@@ -16,4 +16,9 @@ public class Motor : MonoBehaviour {
     {
         this.gameObject.transform.Translate(direction * Time.deltaTime * speed);
     }
+
+    public void Move(Vector3 direction, float speed)
+    {
+        this.gameObject.transform.Translate(direction * Time.deltaTime * speed);
+    }
 }

@@ -6,7 +6,7 @@ public class ChildCollisionScript : MonoBehaviour {
     [SerializeField]
     Mow mowCollider;
     
-    void OnTriggerEnter2D(Collider2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
         mowCollider.OnMowCollision(col);
     }
