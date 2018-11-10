@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 6ab946fea9d57744cb3e917704326225
+guid: 8cd7d71a8576f3f4ea8bc2fd566369bf
 TextureImporter:
   fileIDToRecycleName:
-    21300000: mob_girl_0
-    21300002: mob_girl_1
-    21300004: mob_girl_2
-    21300006: mob_girl_3
+    21300000: mob_mamie_0
+    21300002: mob_mamie_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -88,13 +86,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mob_girl_0
+      name: mob_mamie_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 33
-        height: 58
+        width: 42
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -102,19 +100,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abb123ae4f5c91b49ba221afaa9660ab
+      spriteID: c5eeaf83219d9464dbf5e556804ca6d2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mob_girl_1
+      name: mob_mamie_1
       rect:
         serializedVersion: 2
-        x: 33
+        x: 42
         y: 0
-        width: 33
-        height: 58
+        width: 42
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -122,47 +120,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54a8435fdef345447bbf8eb7ded35ba1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mob_girl_2
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 0
-        width: 33
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 010f8249fd71c3c40959cb097e596c47
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mob_girl_3
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 0
-        width: 33
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f89aea9639b7ca449c1289a5ecdb8f1
+      spriteID: 858539cfd801ac64d8c33b61ed2313d5
       vertices: []
       indices: 
       edges: []
@@ -170,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6a390ce11bc487346a9314656daa1c83
+    spriteID: 34566cf6e0f339949b8ccc6785524027
     vertices: []
     indices: 
     edges: []

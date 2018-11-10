@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Motor))]
 public class ThrowedMow : MonoBehaviour
 {
-
+    
     Motor motor;
     [SerializeField]
     int damage;
@@ -37,7 +37,8 @@ public class ThrowedMow : MonoBehaviour
             //Si mon arme est tombé
             else if (hasDrop)
             {
-                motor.Move(-transform.right, BackGroundMoveImage.speed);
+                
+                motor.Move(-transform.right, BackGroundMoveImage.baseSpeed);
                 ReturnToThrower();
             }
             //Alors elle tombe

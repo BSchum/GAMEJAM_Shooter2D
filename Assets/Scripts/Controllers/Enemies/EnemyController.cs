@@ -21,7 +21,6 @@ public class EnemyController : MonoBehaviour
             target = pathPoints[currentTargetIndex];
         }
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -58,4 +57,5 @@ public class EnemyController : MonoBehaviour
             currentTargetIndex++;
         }
     }
+    
 }

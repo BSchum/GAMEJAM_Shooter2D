@@ -21,8 +21,6 @@ public class Health : MonoBehaviour {
     public void TakeDamage(int amount)
     {
         this.hp -= amount;
-        this.damageTaken(hp);
-
         if(hp <= 0)
         {
             Destroy(this.gameObject);

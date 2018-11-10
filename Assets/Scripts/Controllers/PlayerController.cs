@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
     Camera cam;
     public static float margeLeft_world = 0;
     public static float margeRight_world = 0;
-    public static float margeUp_world = 2;
-    public static float margeBottom_world = 2;
+    public static float margeUp_world = 3;
+    public static float margeBottom_world = 0;
 
     private float _imageSize;
     float margeLeft_pixel, margeRight_pixel, margeUp_pixel, margeBottom_pixel;
@@ -49,7 +49,10 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 futurPosition = cam.WorldToScreenPoint(transform.position + direction * Time.deltaTime * motor.GetSpeed());
 
-        if (futurPosition.x > (0 + _imageSize / 2 + margeLeft_pixel) && futurPosition.x < (Screen.width - _imageSize / 2 - margeRight_pixel) && futurPosition.y > (0 + _imageSize / 2 + margeBottom_pixel) && futurPosition.y < (Screen.height - _imageSize / 2 - margeUp_pixel))
+        if (futurPosition.x > (0 + _imageSize / 2 + margeLeft_pixel) && 
+            futurPosition.x < (Screen.width - _imageSize / 2 - margeRight_pixel) && 
+            futurPosition.y > (0 + _imageSize / 2 + margeBottom_pixel) && 
+            futurPosition.y < (Screen.height - _imageSize / 2 - margeUp_pixel))
         {
             return true;
         }
