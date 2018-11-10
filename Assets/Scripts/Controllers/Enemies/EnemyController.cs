@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
     {
         pathPoints = path.GetComponentsInChildren<Transform>();
         this.motor = GetComponent<Motor>();
-        target = pathPoints[1];
+        target = pathPoints[currentTargetIndex];
     }
 
     // Update is called once per frame
@@ -41,15 +41,18 @@ public class EnemyController : MonoBehaviour
         {
             GetNextPathNode();
         }
-        if (currentTargetIndex >= pathPoints.Length)
-        {
-            Destroy(this.gameObject);
-        }
     }
 
     private void GetNextPathNode()
     {
-        target = pathPoints[currentTargetIndex];
-        currentTargetIndex++;
+        if (currentTargetIndex == pathPoints.Length)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            target = pathPoints[currentTargetIndex];
+            currentTargetIndex++;
+        }
     }
 }
