@@ -12,10 +12,6 @@ public class Mow : MonoBehaviour {
     float _activateTime = 0.01f;
 
     int damage = 50;
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {
