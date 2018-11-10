@@ -9,7 +9,7 @@ public class Mow : MonoBehaviour {
     [SerializeField]
     GameObject _leftAttack;
     [SerializeField]
-    float _activateTime = 0.01f;
+    float _activateTime = 0.2f;
 
     int damage = 50;
 	
@@ -19,20 +19,22 @@ public class Mow : MonoBehaviour {
         {
             StartCoroutine(Swing(_leftAttack));
         }
-	}
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            StartCoroutine(Swing(_rightAttack));
+        }
+    }
 
     private IEnumerator Swing(GameObject rightAttack)
     {
-        rightAttack.SetActive(true);
-        Debug.Log("Je suis activé");
+        rightAttack.GetComponent<PolygonCollider2D>().enabled = true;
         yield return new WaitForSeconds(_activateTime);
-        rightAttack.SetActive(false);
-        Debug.Log("Je suis desactivé");
+        rightAttack.GetComponent<PolygonCollider2D>().enabled = false;
     }
 
-    public void OnMowCollision(Collision2D col)
+    public void OnMowCollision(Collider2D col)
     {
-        Debug.Log("Je suis dans le script mow et la collision a été detecté avec "+col.gameObject.name);
         if(col.gameObject.tag == "enemy")
         {
             col.gameObject.GetComponent<Health>().TakeDamage(damage);
