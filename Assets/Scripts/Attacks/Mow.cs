@@ -8,11 +8,16 @@ public class Mow : MonoBehaviour {
     GameObject _rightAttack;
     [SerializeField]
     GameObject _leftAttack;
-
     [SerializeField]
     GameObject _throwedMow;
     [SerializeField]
+    AudioSource audio;
+    [SerializeField]
     float _activateTime = 0.4f;
+
+    
+    float attackRate = 0.4f;
+    float nextAttack = 0;
 
     bool hasMow = true;
 
@@ -20,25 +25,43 @@ public class Mow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (hasMow)
+
+        if (hasMow && nextAttack < Time.time)
         {
+            Debug.Log("Je peux attaquer");
             if (Input.GetButtonDown("Fire1") && !Input.GetButtonDown("Fire2"))
             {
+                nextAttack = Time.time + attackRate;
+                audio.Play();
                 this.GetComponentInChildren<Animator>().SetTrigger("isUpAttacking");
                 StartCoroutine(Swing(_leftAttack));
             }
-
-            if (Input.GetButtonDown("Fire2") && !Input.GetButtonDown("Fire1"))
+            else if (Input.GetButtonDown("Fire2") && !Input.GetButtonDown("Fire1"))
             {
+                nextAttack = Time.time + attackRate;
+                audio.Play();
                 this.GetComponentInChildren<Animator>().SetTrigger("isDownAttacking");
                 StartCoroutine(Swing(_rightAttack));
 
             }
+            else if(Input.GetButtonDown("Fire1") && Input.GetButtonDown("Fire2"))
+            {
+
+                this.GetComponentInChildren<Animator>().SetTrigger("isHolding");
+            }
 
             if (Input.GetButtonUp("Fire1") && Input.GetButtonUp("Fire2"))
             {
+                nextAttack = Time.time + attackRate;
+                audio.Play();
+                this.GetComponentInChildren<Animator>().SetTrigger("isNaked");
                 Throw(_throwedMow);
             }
+
+        }
+        else
+        {
+            Debug.Log("Je peux pas attaquer");
         }
     }
     
@@ -63,6 +86,7 @@ public class Mow : MonoBehaviour {
 
     public void Recuperate()
     {
+        this.GetComponentInChildren<Animator>().SetTrigger("isRunning");
         hasMow = true;
     }
 

@@ -9,7 +9,7 @@ public class BackGroundMoveImage : MonoBehaviour {
     private float _speed;
     private float _newPosition;
     
-    public static float speed = 2f;
+    public static float speed = 5f;
 
 
     // Use this for initialization

@@ -14,9 +14,12 @@ public class EnemyController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        pathPoints = path.GetComponentsInChildren<Transform>();
         this.motor = GetComponent<Motor>();
-        target = pathPoints[currentTargetIndex];
+        if (path != null)
+        {
+            pathPoints = path.GetComponentsInChildren<Transform>();
+            target = pathPoints[currentTargetIndex];
+        }
     }
 
     // Update is called once per frame

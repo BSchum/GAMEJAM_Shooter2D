@@ -15,8 +15,10 @@ public class ThrowedMow : MonoBehaviour
     public Vector3 firstThrowPos;
 
     Animator animator;
+    AudioSource audio;
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         animator = GetComponentInChildren<Animator>();
         motor = GetComponent<Motor>();
     }
@@ -41,6 +43,7 @@ public class ThrowedMow : MonoBehaviour
             //Alors elle tombe
             else
             {
+                audio.Play();
                 animator.SetBool("HasFallen", true);
                 hasDrop = true;
             }

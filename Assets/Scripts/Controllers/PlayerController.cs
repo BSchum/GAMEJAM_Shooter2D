@@ -7,10 +7,10 @@ public class PlayerController : MonoBehaviour
 {
     Motor motor;
     Camera cam;
-    public float margeLeft_world = 0;
-    public float margeRight_world = 0;
-    public float margeUp_world = 0;
-    public float margeBottom_world = 0;
+    public static float margeLeft_world = 0;
+    public static float margeRight_world = 0;
+    public static float margeUp_world = 2;
+    public static float margeBottom_world = 2;
 
     private float _imageSize;
     float margeLeft_pixel, margeRight_pixel, margeUp_pixel, margeBottom_pixel;
