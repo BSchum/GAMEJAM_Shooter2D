@@ -418,6 +418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6aa51e58ba30c94db8c9fd703b210a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyScore: 50
+  enemyHappyness: 0
   target: {fileID: 0}
 --- !u!212 &212844216946697178
 SpriteRenderer:

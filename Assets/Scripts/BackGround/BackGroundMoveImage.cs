@@ -15,6 +15,7 @@ public class BackGroundMoveImage : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
         _startPosition = GetComponent<Transform>().position;
         _speed = speed;
         _actualPositionX = 0;
@@ -23,6 +24,10 @@ public class BackGroundMoveImage : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (this.gameObject.tag == "ground")
+        {
+            baseSpeed = speed;
+        }
         _speed = speed;
         _actualPositionX += Time.deltaTime * _speed;
         _newPosition = Mathf.Repeat(_actualPositionX, ImageWidth);

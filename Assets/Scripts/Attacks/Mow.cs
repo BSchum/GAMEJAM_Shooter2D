@@ -16,21 +16,22 @@ public class Mow : MonoBehaviour {
     float _activateTime = 0.4f;
 
     
-    float attackRate = 0.4f;
+    float attackRate = 0.5f;
     float nextAttack = 0;
 
     bool hasMow = true;
 
     int damage = 50;
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
 
         if (hasMow && nextAttack < Time.time)
         {
-            Debug.Log("Je peux attaquer");
             if (Input.GetButtonDown("Fire1") && !Input.GetButtonDown("Fire2"))
             {
+                Debug.Log("Up");
                 nextAttack = Time.time + attackRate;
                 audio.Play();
                 this.GetComponentInChildren<Animator>().SetTrigger("isUpAttacking");
@@ -38,30 +39,28 @@ public class Mow : MonoBehaviour {
             }
             else if (Input.GetButtonDown("Fire2") && !Input.GetButtonDown("Fire1"))
             {
+                Debug.Log("Down");
                 nextAttack = Time.time + attackRate;
                 audio.Play();
                 this.GetComponentInChildren<Animator>().SetTrigger("isDownAttacking");
                 StartCoroutine(Swing(_rightAttack));
 
             }
-            else if(Input.GetButtonDown("Fire1") && Input.GetButtonDown("Fire2"))
+            if (Input.GetButtonDown("Fire1") && Input.GetButtonDown("Fire2"))
             {
-
+                Debug.Log("Prepare");
                 this.GetComponentInChildren<Animator>().SetTrigger("isHolding");
             }
 
             if (Input.GetButtonUp("Fire1") && Input.GetButtonUp("Fire2"))
             {
+                Debug.Log("Release");
+                this.GetComponentInChildren<Animator>().SetTrigger("isNaked");
                 nextAttack = Time.time + attackRate;
                 audio.Play();
-                this.GetComponentInChildren<Animator>().SetTrigger("isNaked");
                 Throw(_throwedMow);
             }
 
-        }
-        else
-        {
-            Debug.Log("Je peux pas attaquer");
         }
     }
     
@@ -72,8 +71,6 @@ public class Mow : MonoBehaviour {
         yield return new WaitForSeconds(_activateTime);
         rightAttack.GetComponent<PolygonCollider2D>().enabled = false;
         this.GetComponentInChildren<Animator>().SetTrigger("isRunning");
-
-
     }
 
     private void Throw(GameObject mow)

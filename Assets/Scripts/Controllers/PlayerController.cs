@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public static float margeLeft_world = 0;
     public static float margeRight_world = 0;
     public static float margeUp_world = 3;
-    public static float margeBottom_world = 0;
+    public static float margeBottom_world = 0.5f;
 
     private float _imageSize;
     float margeLeft_pixel, margeRight_pixel, margeUp_pixel, margeBottom_pixel;

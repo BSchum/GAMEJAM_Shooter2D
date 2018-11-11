@@ -7,10 +7,17 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     Motor motor;
+
+    public int enemyScore;
+    public int enemyHappyness;
+    //*********Move from path
     public Transform path { get; set; }
     Transform[] pathPoints;
     int currentTargetIndex = 1;
     public Transform target;
+    //*********Move from path
+
+
     // Use this for initialization
     void Start()
     {
@@ -21,16 +28,20 @@ public class EnemyController : MonoBehaviour
             target = pathPoints[currentTargetIndex];
         }
     }
-    // Update is called once per frame
     void Update()
     {
-        if(path == null)
+        if (path == null)
         {
             motor.Move(-transform.right);
         }
         else
         {
             MoveFromPath();
+        }
+        
+        if (this.transform.position.x < Camera.main.ViewportToWorldPoint(new Vector3(-1, 0, 0)).x)
+        {
+            Destroy(this.gameObject);
         }
     }
 
@@ -44,7 +55,6 @@ public class EnemyController : MonoBehaviour
             GetNextPathNode();
         }
     }
-
     private void GetNextPathNode()
     {
         if (currentTargetIndex == pathPoints.Length)

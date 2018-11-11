@@ -8,8 +8,14 @@ public class Health : MonoBehaviour {
     [SerializeField]
     int _maxHp;
 
+    [SerializeField]
+    float deathTime = 0;
+
+    Animator animator;
+
 	// Use this for initialization
 	void Start () {
+        animator = GetComponentInChildren<Animator>();
         hp = _maxHp;
 	}
 	
@@ -23,7 +29,11 @@ public class Health : MonoBehaviour {
         this.hp -= amount;
         if(hp <= 0)
         {
-            Destroy(this.gameObject);
+            ScoreController.instance.AddScore(GetComponent<EnemyController>().enemyScore);
+            ScoreController.instance.AddHappyness(GetComponent<EnemyController>().enemyHappyness);
+            if(animator != null)
+                animator.SetTrigger("Die");
+            Destroy(this.gameObject, deathTime);
         }
     }
 
